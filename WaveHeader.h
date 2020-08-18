@@ -31,12 +31,12 @@ struct Wave_format{
     uint32_t bytes_per_sec;   // 码率，channels * sample_per_sec * bits_per_sample / 8
     uint16_t block_align;     // 音频数据块，每次采样处理的数据大小，channels * bits_per_sample / 8
     uint16_t bits_per_sample; // 量化位数，8、16、32等
-    uint16_t ex_size;         // 扩展块的大小，附加块的大小
+//    uint16_t ex_size;         // 扩展块的大小，附加块的大小
 
     Wave_format()
     {
         format_tag      = 1; // PCM format data
-        ex_size         = 0; // don't use extesion field
+//        ex_size         = 0; // don't use extesion field
 
         channels        = 0;
         sample_per_sec  = 0;
@@ -51,7 +51,7 @@ struct Wave_format{
         format_tag    = 0x01;                                            // PCM format data
         bytes_per_sec = channels * sample_per_sec * bits_per_sample / 8; // 码率
         block_align   = channels * bits_per_sample / 8;
-        ex_size       = 0;                                               // don't use extension field
+//        ex_size       = 0;                                               // don't use extension field
     }
 };
 /*
@@ -104,6 +104,7 @@ class WaveHeader
 {
 public:
     WaveHeader();
+    bool func();
 };
 
 #endif // WAVEHEADER_H
